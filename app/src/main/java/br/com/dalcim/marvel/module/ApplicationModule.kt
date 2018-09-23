@@ -7,7 +7,7 @@ import br.com.dalcim.marvel.view.characters.CharactersPresenter
 import org.koin.dsl.module.applicationContext
 
 val applicationModule = applicationContext {
-    factory { CharactersPresenter() as CharactersContract.Presenter }
+    factory { CharactersPresenter(get()) as CharactersContract.Presenter }
 
     factory { MarvelRepositoryImpl(retrofit = get()) as MarvelRepository }
 }
