@@ -8,6 +8,7 @@ import org.koin.android.ext.android.startKoin
 class App : Application() {
 
     private val modules = listOf (
+            applicationModule,
             retrofitClientModule
     )
 
