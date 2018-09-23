@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.dalcim.marvel.R
 import br.com.dalcim.marvel.data.model.CharacterMarvel
-import kotlinx.android.synthetic.main.item_character.view.*
+import kotlinx.android.synthetic.main.item_character.view.ichaTxtName as txtName
 
 class CharactersAdapter(private val characters: MutableList<CharacterMarvel>) : RecyclerView.Adapter<CharactersAdapter.Holder>() {
 
@@ -37,7 +37,7 @@ class CharactersAdapter(private val characters: MutableList<CharacterMarvel>) : 
         }
 
         fun render(item: CharacterMarvel) {
-            itemView.ichaTxtName.text = item.name
+            itemView.txtName.text = item.name
         }
     }
 }
