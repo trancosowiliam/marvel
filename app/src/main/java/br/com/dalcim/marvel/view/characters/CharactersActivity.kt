@@ -24,7 +24,7 @@ class CharactersActivity : AppCompatActivity(), CharactersContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_characters)
-        presenter.view = this
+        presenter(this)
 
         setupList()
         presenter.loadCharacters(offset, null)
