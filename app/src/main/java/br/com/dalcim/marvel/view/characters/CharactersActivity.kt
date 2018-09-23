@@ -8,6 +8,7 @@ import android.view.View
 import br.com.dalcim.marvel.R
 import br.com.dalcim.marvel.data.model.CharacterMarvel
 import br.com.dalcim.marvel.showDialogMessage
+import br.com.dalcim.marvel.view.character.CharacterActivity
 import org.koin.android.ext.android.inject
 import kotlinx.android.synthetic.main.activity_characters.csRecCharacters as recCharacters
 import kotlinx.android.synthetic.main.activity_characters.csGroupLoading as groupLoading
@@ -53,6 +54,10 @@ class CharactersActivity : AppCompatActivity(), CharactersContract.View {
     }
 
     private fun setupList() {
+        adapter.onItemClick = { character ->
+            startActivity(CharacterActivity.newIntent(this, character))
+        }
+
         val llm = LinearLayoutManager(this)
         recCharacters.layoutManager = llm
         recCharacters.adapter = adapter

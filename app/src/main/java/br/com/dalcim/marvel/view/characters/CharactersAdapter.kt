@@ -10,6 +10,8 @@ import kotlinx.android.synthetic.main.item_character.view.*
 
 class CharactersAdapter(private val characters: MutableList<CharacterMarvel>) : RecyclerView.Adapter<CharactersAdapter.Holder>() {
 
+    var onItemClick: ((CharacterMarvel) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val holder = Holder(LayoutInflater.from(parent?.context).inflate(R.layout.item_character, parent, false))
 
@@ -27,7 +29,13 @@ class CharactersAdapter(private val characters: MutableList<CharacterMarvel>) : 
         this.notifyItemChanged(characters.size - 1)
     }
 
-    class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        init {
+            itemView.setOnClickListener {
+                onItemClick?.invoke(characters[adapterPosition])
+            }
+        }
+
         fun render(item: CharacterMarvel) {
             itemView.ichaTxtName.text = item.name
         }
