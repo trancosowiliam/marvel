@@ -42,7 +42,10 @@ class CharactersActivity : AppCompatActivity(), CharactersContract.View {
     }
 
     override fun addItens(characters: List<CharacterMarvel>) {
-
+        offset += characters.size
+        characters.forEach {  character ->
+            adapter.addItem(character)
+        }
     }
 
     override fun showMessage(message: String) {
@@ -50,9 +53,17 @@ class CharactersActivity : AppCompatActivity(), CharactersContract.View {
     }
 
     private fun setupList() {
-
         val llm = LinearLayoutManager(this)
         recCharacters.layoutManager = llm
         recCharacters.adapter = adapter
+        recCharacters.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                val lastVisibleItemPosition = llm.findLastVisibleItemPosition()
+                if (lastVisibleItemPosition == adapter.itemCount - 1 && !isLoading) {
+                    presenter.loadCharacters(offset, null)
+                }
+            }
+        })
     }
 }
