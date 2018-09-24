@@ -1,9 +1,19 @@
 <resources>
     <string name="app_name">Marvel</string>
+    <string name="character_label_name">Nome</string>
+    <string name="character_label_comics">Revistas</string>
 
+    <string name="comics_available_zero">Apareceu em nenhuma revista</string>
     <plurals name="comics_available">
         <item quantity="zero">Apareceu em nenhuma revista</item>
         <item quantity="one">Aparece em uma revista</item>
         <item quantity="other">Aparece em %d revistas</item>
+    </plurals>
+
+    <string name="comic_page_count_zero">Não há dados</string>
+    <plurals name="comic_page_count">
+        <item quantity="zero">Não há dados</item>
+        <item quantity="one">Uma página</item>
+        <item quantity="other">%d Páginas</item>
     </plurals>
 </resources>

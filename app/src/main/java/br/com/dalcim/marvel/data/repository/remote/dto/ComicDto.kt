@@ -1,9 +1,11 @@
 package br.com.dalcim.marvel.data.repository.remote.dto
 
 data class ComicDto(
-        var title: String,
+        val title: String,
+        val description: String?,
+        val pageCount: Int,
         val thumbnail: ThumbnailDto
 ) {
-    val image:String
+    val image: String
         get() = "${thumbnail.path}.${thumbnail.extension}"
 }

@@ -21,11 +21,31 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="Card" />
-
-    <style name="Card.Text">
+    <style name="Text">
         <item name="android:fontFamily">@font/app_font</item>
     </style>
+
+    <style name="Text.Label">
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Text.Value">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+    </style>
+
+    <style name="Card" />
+
+    <style name="Card.Text" parent="Text" />
 
     <style name="Card.Text.Title" parent="Card.Text">
         <item name="android:textSize">18sp</item>

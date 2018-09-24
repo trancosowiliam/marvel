@@ -1,7 +1,10 @@
 package br.com.dalcim.marvel
 
 import android.app.Activity
+import android.content.res.Resources
 import android.os.Parcelable
+import android.support.annotation.PluralsRes
+import android.support.annotation.StringRes
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
@@ -29,4 +32,12 @@ fun ImageView.loadImage(photoUrl: String, circle: Boolean = false) {
             .load(photoUrl)
             .apply { if (circle) this.apply(RequestOptions.circleCropTransform()) }
             .into(this)
+}
+
+fun Resources.getStringQty(@PluralsRes id: Int, quantity: Int, @StringRes zeroValue: Int): String {
+    return if (quantity == 0) {
+        this.getString(zeroValue)
+    } else {
+        this.getQuantityString(id, quantity, quantity)
+    }
 }

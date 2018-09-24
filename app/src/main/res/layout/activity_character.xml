@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_gravity="bottom"
-                android:background="@drawable/shadow"/>
+                android:background="@drawable/shadow" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/chaTbToolbar"
@@ -46,43 +46,59 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         android:overScrollMode="never"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/chaLblName"
+                style="@style/Text.Label"
+                android:layout_marginTop="16dp"
+                android:text="@string/character_label_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/chaTxtName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/Text.Value"
+                app:layout_constraintTop_toBottomOf="@id/chaLblName"
+                tools:text="Spiderman" />
+
+            <TextView
+                android:id="@+id/chaLblComics"
+                style="@style/Text.Label"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
+                android:layout_marginTop="12dp"
+                android:text="@string/character_label_comics"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="name" />
+                app:layout_constraintTop_toBottomOf="@id/chaTxtName" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/chaRecComics"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chaTxtName" />
+                app:layout_constraintTop_toBottomOf="@id/chaLblComics" />
 
             <ProgressBar
                 android:id="@+id/chaProgressBarList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chaTxtName" />
+                app:layout_constraintTop_toBottomOf="@id/chaLblComics"
+                app:layout_constraintVertical_bias="0" />
 
         </android.support.constraint.ConstraintLayout>
 
