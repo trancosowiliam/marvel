@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Marvel</string>
+    <string name="character_label_name">Nome</string>
+    <string name="character_label_comics">Revistas</string>
 
     <plurals name="comics_available">
         <item quantity="zero">Apareceu em nenhuma revista</item>
