@@ -6,7 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.dalcim.marvel.R
 import br.com.dalcim.marvel.data.model.CharacterMarvel
+import br.com.dalcim.marvel.isVisible
+import br.com.dalcim.marvel.loadImage
+import kotlinx.android.synthetic.main.item_character.view.ichaImgImage as imgImage
 import kotlinx.android.synthetic.main.item_character.view.ichaTxtName as txtName
+import kotlinx.android.synthetic.main.item_character.view.ichaTxtCountComics as txtCountComics
+import kotlinx.android.synthetic.main.item_character.view.ichaTxtDescription as txtDescription
 
 class CharactersAdapter(private val characters: MutableList<CharacterMarvel>) : RecyclerView.Adapter<CharactersAdapter.Holder>() {
 
@@ -38,6 +43,10 @@ class CharactersAdapter(private val characters: MutableList<CharacterMarvel>) : 
 
         fun render(item: CharacterMarvel) {
             itemView.txtName.text = item.name
+            itemView.imgImage.loadImage(item.image, true)
+            itemView.txtCountComics.text = itemView.resources.getQuantityString(R.plurals.comics_available, item.comicsAvailable, item.comicsAvailable)
+            itemView.txtDescription.text = item.description
+            itemView.txtDescription.isVisible = item.description.isNotBlank()
         }
     }
 }

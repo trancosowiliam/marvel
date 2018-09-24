@@ -1,55 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.characters.CharactersActivity">
-
-    <android.support.constraint.Group
-        android:id="@+id/csGroupLoading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="csPbLoadMore, csLblLoadMore" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/csRecCharacters"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/csPbLoadMore"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <android.support.constraint.Barrier
-        android:id="@+id/barrier7"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/csGroupLoading"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="csRecCharacters" />
+        app:layout_goneMarginTop="0dp">
 
-    <ProgressBar
-        android:id="@+id/csPbLoadMore"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier7"
-        app:layout_constraintVertical_bias="0" />
+        <ProgressBar
+            android:id="@+id/csPbLoadMore"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp" />
 
-    <TextView
-        android:id="@+id/csLblLoadMore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="Carregando..."
-        app:layout_constraintBottom_toBottomOf="@+id/csPbLoadMore"
-        app:layout_constraintStart_toEndOf="@+id/csPbLoadMore"
-        app:layout_constraintTop_toTopOf="@+id/csPbLoadMore" />
-
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/csLblLoadMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:text="Carregando..." />
+    </LinearLayout>
+</LinearLayout>
