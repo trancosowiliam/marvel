@@ -4,7 +4,8 @@ data class CharacterMarvelDto(
         val id: Long,
         val name: String,
         val description: String,
-        val thumbnail: ThumbnailDto
+        val thumbnail: ThumbnailDto,
+        val comics:ComicsCountDto
 ) {
     val image:String
         get() = "${thumbnail.path}.${thumbnail.extension}"

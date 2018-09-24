@@ -4,4 +4,6 @@
     <color name="colorPrimaryTrans">#CC2F0A22</color>
     <color name="colorPrimaryDark">#1c0614</color>
     <color name="colorAccent">#ed252f</color>
+
+    <color name="separator">#CCCCCC</color>
 </resources>
