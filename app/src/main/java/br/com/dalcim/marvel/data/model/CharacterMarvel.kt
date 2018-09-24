@@ -5,9 +5,10 @@ import br.com.dalcim.marvel.data.repository.remote.dto.CharacterMarvelDto
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class CharacterMarvel(val id: Long, val name: String) : Parcelable {
+data class CharacterMarvel(val id: Long, val name: String, val image:String) : Parcelable {
     constructor(dto: CharacterMarvelDto) : this(
             id = dto.id,
-            name = dto.name
+            name = dto.name,
+            image = dto.image
     )
 }

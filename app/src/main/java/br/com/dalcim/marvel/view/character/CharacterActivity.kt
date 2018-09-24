@@ -5,24 +5,23 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import br.com.dalcim.marvel.R
+import android.view.MenuItem
+import br.com.dalcim.marvel.*
 import br.com.dalcim.marvel.data.model.CharacterMarvel
 import br.com.dalcim.marvel.data.model.Comic
-import br.com.dalcim.marvel.isVisible
-import br.com.dalcim.marvel.showDialogMessage
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
+import kotlinx.android.synthetic.main.activity_character.*
 import org.koin.android.ext.android.inject
 import kotlinx.android.synthetic.main.activity_character.chaProgressBarList as progressBarList
 import kotlinx.android.synthetic.main.activity_character.chaRecComics as recComics
 import kotlinx.android.synthetic.main.activity_character.chaTxtName as txtName
+import kotlinx.android.synthetic.main.activity_character.chaImgCharacter as imgCharacter
 
 private const val EXTRA_CHARACTER = "character"
 
 class CharacterActivity : AppCompatActivity(), CharacterContract.View {
     override val presenter by inject<CharacterContract.Presenter>()
 
-    private val characterMarvel by lazy { intent.getParcelableExtra<CharacterMarvel>(EXTRA_CHARACTER) }
+    private val characterMarvel:CharacterMarvel by extra(EXTRA_CHARACTER)
 
     companion object {
         fun newIntent(context: Context, character: CharacterMarvel) = Intent(context, CharacterActivity::class.java).apply {
@@ -39,6 +38,13 @@ class CharacterActivity : AppCompatActivity(), CharacterContract.View {
         presenter.loadComics(characterMarvel.id)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return when(item?.itemId) {
+            android.R.id.home -> onBackPressed().let { true }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun loadingList(isLoading: Boolean) {
         progressBarList.isVisible = isLoading
     }
@@ -53,7 +59,12 @@ class CharacterActivity : AppCompatActivity(), CharacterContract.View {
     }
 
     private fun setupViews() {
+        setSupportActionBar(chaTbToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        supportActionBar?.title = characterMarvel.name
         txtName.text = characterMarvel.name
+        imgCharacter.loadImage(characterMarvel.image)
     }
 
 }
