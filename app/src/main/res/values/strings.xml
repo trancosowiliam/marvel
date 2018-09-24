@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Marvel</string>
+
+    <plurals name="comics_available">
+        <item quantity="zero">Apareceu em nenhuma revista</item>
+        <item quantity="one">Aparece em uma revista</item>
+        <item quantity="other">Aparece em %d revistas</item>
+    </plurals>
 </resources>
