@@ -2,7 +2,7 @@ package br.com.dalcim.marvel.view.characters
 
 import br.com.dalcim.marvel.data.repository.remote.MarvelRepository
 
-private const val LIMIT_CHARACTER = 100
+private const val LIMIT_CHARACTER = 20
 
 class CharactersPresenter(private val repository: MarvelRepository) : CharactersContract.Presenter {
     override lateinit var view: CharactersContract.View
