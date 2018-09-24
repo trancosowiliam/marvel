@@ -13,7 +13,7 @@ data class Comic(
 
     constructor(dto: ComicDto) : this(
             title = dto.title,
-            description = dto.description,
+            description = dto.description ?: "",
             pageCount = dto.pageCount,
             image = dto.image
     )

@@ -2,7 +2,7 @@ package br.com.dalcim.marvel.data.repository.remote.dto
 
 data class ComicDto(
         val title: String,
-        val description: String,
+        val description: String?,
         val pageCount: Int,
         val thumbnail: ThumbnailDto
 ) {
