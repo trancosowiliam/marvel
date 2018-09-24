@@ -7,10 +7,14 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Comic(
         val title: String,
+        val description: String,
+        val pageCount: Int,
         val image: String) : Parcelable {
 
     constructor(dto: ComicDto) : this(
             title = dto.title,
+            description = dto.description,
+            pageCount = dto.pageCount,
             image = dto.image
     )
 }
