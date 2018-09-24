@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/icoImgImage"
+        style="@style/Card.Image.Circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:background="@drawable/arc"
+        app:layout_constraintBottom_toBottomOf="@id/icoImgImage"
+        app:layout_constraintEnd_toEndOf="@id/icoImgImage"
+        app:layout_constraintStart_toStartOf="@id/icoImgImage"
+        app:layout_constraintTop_toTopOf="@id/icoImgImage" />
+
+    <TextView
+        android:id="@+id/icoTxtTitle"
+        style="@style/Card.Text.Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/icoTxtPagesCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icoImgImage"
+        app:layout_constraintTop_toTopOf="@id/icoImgImage"
+        tools:text="Spiderman (2018) #55" />
+
+    <TextView
+        android:id="@+id/icoTxtPagesCount"
+        style="@style/Card.Text.SubTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/icoTxtDescription"
+        app:layout_constraintEnd_toEndOf="@id/icoTxtTitle"
+        app:layout_constraintStart_toStartOf="@id/icoTxtTitle"
+        app:layout_constraintTop_toBottomOf="@id/icoTxtTitle"
+        app:layout_goneMarginBottom="16dp"
+        tools:text="322 Páginas" />
+
+    <TextView
+        android:id="@+id/icoTxtDescription"
+        style="@style/Card.Text.Description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/icoViewSeparator"
+        app:layout_constraintEnd_toEndOf="@id/icoTxtTitle"
+        app:layout_constraintStart_toStartOf="@id/icoTxtTitle"
+        app:layout_constraintTop_toBottomOf="@id/icoTxtPagesCount"
+        tools:text="O amigo da vizinhança entra em altas confusões" />
+
+    <View
+        android:id="@+id/icoViewSeparator"
+        style="@style/Card.Separator"
+        app:layout_constraintTop_toBottomOf="@id/icoTxtDescription" />
+
+</android.support.constraint.ConstraintLayout>
