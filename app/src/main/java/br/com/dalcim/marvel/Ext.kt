@@ -27,6 +27,6 @@ fun <T : Parcelable> Activity.extra(key: String, default: T? = null): Lazy<T> = 
 fun ImageView.loadImage(photoUrl: String, circle: Boolean = false) {
     Glide.with(context)
             .load(photoUrl)
-            .apply { if (circle) RequestOptions.circleCropTransform() }
+            .apply { if (circle) this.apply(RequestOptions.circleCropTransform()) }
             .into(this)
 }
