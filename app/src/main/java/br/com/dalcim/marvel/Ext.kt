@@ -5,16 +5,20 @@ import android.content.res.Resources
 import android.os.Parcelable
 import android.support.annotation.PluralsRes
 import android.support.annotation.StringRes
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 
-
 fun AppCompatActivity.showDialogMessage(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    AlertDialog.Builder(this)
+            .setMessage(message)
+            .setPositiveButton("Ok") { _, _ -> }
+            .setCancelable(false)
+            .show()
 }
 
 var View.isVisible: Boolean
@@ -29,6 +33,7 @@ fun <T : Parcelable> Activity.extra(key: String, default: T? = null): Lazy<T> = 
 
 fun ImageView.loadImage(photoUrl: String, circle: Boolean = false) {
     Glide.with(context)
+            .applyDefaultRequestOptions(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.DATA))
             .load(photoUrl)
             .apply { if (circle) this.apply(RequestOptions.circleCropTransform()) }
             .into(this)
